@@ -5,16 +5,17 @@ const app = express();
 const mongoose = require('mongoose');
 const UserModel = require('./models/User');
 const MovieShowModel = require('./models/MovieShow')
+const port = 3001;
 
 // Middleware to parse JSON bodies
 app.use(express.json());
 
 // CORS middleware
 app.use(cors({
-    origin: "https://vday-frontend.vercel.app",
-    methods: ['GET', 'POST'],
-    allowedHeaders: ['Content-Type'],
-    credentials: true
+    // origin: "https://vday-frontend.vercel.app",
+    // methods: ['GET', 'POST'],
+    // allowedHeaders: ['Content-Type'],
+    // credentials: true
 }));
 
 app.options('*', cors());
@@ -87,3 +88,7 @@ app.get('/activity/description', async (req, res) => {
         res.status(500).json({ message: 'Server error - cannot fetch description' });
     }
 })
+
+app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
+});
