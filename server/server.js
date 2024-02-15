@@ -11,8 +11,10 @@ app.use(express.json());
 
 // CORS middleware
 app.use(cors({
-    origin: "https://vday-backend.vercel.app",
+    origin: "https://vday-frontend.vercel.app",
 }));
+
+app.options('*', cors());
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URL)
