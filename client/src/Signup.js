@@ -21,7 +21,8 @@ function Signup() {
             if (response.ok) { // Check if response status is within 200-299 range
                 const data = await response.json();
                 if (data === "login success") {
-                    window.location.href = '/bemyvalentine';
+                   localStorage.setItem('token', data.token);
+                   window.location.href='bemyvalentine';
                 } else {
                     setErrorMessage(data.error || 'An error occurred while signing up');
                 }

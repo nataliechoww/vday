@@ -1,4 +1,5 @@
 const express = require('express');
+const jwt = require('jsonwebtoken');
 const cors = require('cors');
 require('dotenv').config();
 const app = express();
@@ -9,6 +10,18 @@ const port = 3001;
 
 // Middleware to parse JSON bodies
 app.use(express.json());
+
+//Middleware for protected routes
+const verifyToken = (req, res, next) => {
+    const token = req.cookies.token;
+    if(!token) return res.redirect('/login');
+
+    jwt.verify(token, 'poopoopeepee', (err, user) => {
+        if(err) return res.redirect('/login');
+        req.user = user;
+        next();
+    });
+};
 
 // CORS middleware
 app.use(cors({
@@ -43,7 +56,9 @@ app.post('/login', async (req, res) => {
         const users = await UserModel.find({ password });
         if (users.length > 0) {
             res.json("login success");
-            console.log("hi");
+            const token = jwt.sign({ access: 'granted' }, 'poopoopeepee');
+            res.cookie('token', token, { httpOnly: true });
+            res.redirect('/bemyvalentine);')
         } else {
             res.json("wrong password");
         }
@@ -51,6 +66,10 @@ app.post('/login', async (req, res) => {
         console.error("Error checking password:", error);
     }
 });
+
+app.get('/bemyvalentine', verifyToken, (req,res) => {
+    res.send('Welcome to Bemyvalentine');
+});                                                                                                                                                         
 
 //get all movies for dropdown
 app.get('/activity/movie', async (req, res) => {
