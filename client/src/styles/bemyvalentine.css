@@ -1,0 +1,24 @@
+.bemyvalentine {
+    margin: 0 auto;
+    text-align: center;
+    background-color: white;
+    padding: 30px;
+    border-radius: 50px;
+  }
+  
+  .buttons {
+    margin-top: 20px;
+  }
+  
+  .yesButton,
+  .noButton {
+    padding: 10px 20px;
+    margin: 0 10px; /* Adjust margin between buttons */
+    border: none;
+    cursor: pointer;
+    background-color: #ff1493;
+    border-radius: 10px;
+    height: 50px;
+    width: 70px;
+  }
+  

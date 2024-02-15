@@ -1,0 +1,44 @@
+body {
+    background-color: rgb(255, 207, 245);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.signup-container {
+    background-color: white;
+    padding: 40px; /* Added padding */
+    border-radius: 20px;
+    max-width: 400px;
+    text-align: center;
+}
+
+.signup-container h1 {
+    margin-bottom: 20px;
+}
+
+.signup-container input,
+.signup-container button {
+    width: calc(100% - 20px); /* Adjusted width to account for padding */
+    margin-bottom: 20px; /* Increased margin-bottom */
+    padding: 10px; /* Added padding */
+    border: none; /* Removed border */
+    border-radius: 5px; /* Added border-radius */
+    outline: none; /* Removed outline */
+}
+
+.signup-container input:focus {
+    box-shadow: 0 0 5px #ff1493; /* Added box shadow on focus */
+}
+
+.signup-container button {
+    background-color: #ff1493; /* Pink color */
+    color: white;
+    cursor: pointer;
+}
+
+.signup-container button:hover {
+    background-color: #ff6b98; /* Lighter pink on hover */
+}
