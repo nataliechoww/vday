@@ -10,7 +10,9 @@ const MovieShowModel = require('./models/MovieShow')
 app.use(express.json());
 
 // CORS middleware
-app.use(cors());
+app.use(cors({
+    origin: "vday-backend.vercel.app",
+}));
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URL)
