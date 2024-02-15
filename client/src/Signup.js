@@ -10,7 +10,7 @@ function Signup() {
         e.preventDefault(); // Prevent default form submission
         
         try {
-            const response = await fetch('http://localhost:3001/login', {
+            const response = await fetch('http://vday-backend.vercel.app:3001/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
