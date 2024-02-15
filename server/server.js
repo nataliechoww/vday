@@ -2,7 +2,6 @@ const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
 const app = express();
-const port = 3001;
 const mongoose = require('mongoose');
 const UserModel = require('./models/User');
 const MovieShowModel = require('./models/MovieShow')
@@ -81,5 +80,3 @@ app.get('/activity/description', async (req, res) => {
         res.status(500).json({ message: 'Server error - cannot fetch description' });
     }
 })
-
-app.listen(port, () => console.log(`Server is running on port ${port}`));
