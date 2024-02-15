@@ -12,10 +12,10 @@ app.use(express.json());
 
 // CORS middleware
 app.use(cors({
-    // origin: "https://vday-frontend.vercel.app",
-    // methods: ['GET', 'POST'],
-    // allowedHeaders: ['Content-Type'],
-    // credentials: true
+    origin: "https://vday-frontend.vercel.app",
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type'],
+    credentials: true
 }));
 
 app.options('*', cors());
