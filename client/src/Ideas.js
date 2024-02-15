@@ -17,7 +17,7 @@ function Ideas() {
         const food = event.target.food.value;
 
         try {
-            const response = await fetch(`vday-backend.vercel.app:3001/activity/${activity}`);
+            const response = await fetch(`https://vday-backend.vercel.app/activity/${activity}`);
             const data = await response.json();
             const options = data.map((movie, index) => (
                 <option key={index} value={movie.name}>{movie.name}</option>
@@ -47,7 +47,7 @@ function Ideas() {
         const finalFood = food;
 
         try {
-            const response = await fetch(`vday-backend.vercel.app:3001/activity/description?name=${(finalActivity)}`);
+            const response = await fetch(`https://vday-backend.vercel.app/activity/description?name=${(finalActivity)}`);
 
             if (!response.ok) {
                 throw new Error('Failed to fetch movie description');

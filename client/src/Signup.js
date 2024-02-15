@@ -7,10 +7,10 @@ function Signup() {
     const [errorMessage, setErrorMessage] = useState('');
 
     const handleSignup = async (e) => {
-        e.preventDefault(); // Prevent default form submission
+        e.preventDefault();
         
         try {
-            const response = await fetch('http://vday-backend.vercel.app:3001/login', {
+            const response = await fetch('https://vday-backend.vercel.app/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
